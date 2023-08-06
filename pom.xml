@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sd.service</groupId>
     <artifactId>to-do-list</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>to-do-list</name>
     <description>To do list service</description>
     <properties>
