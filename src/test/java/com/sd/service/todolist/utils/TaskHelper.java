@@ -10,7 +10,7 @@ import com.sd.service.todolist.entity.Task;
 import com.sd.service.todolist.entity.TaskStatus;
 import com.sd.service.todolist.model.PersonDto;
 import com.sd.service.todolist.model.TaskDto;
-import com.sd.service.todolist.model.TaskPatchDto;
+import com.sd.service.todolist.model.patch.TaskPatchDto;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -32,9 +32,9 @@ public class TaskHelper {
                 .build();
     }
 
-    public static Task createTask(final TaskStatus status) {
+    public static Task createTask(final TaskStatus status, Integer taskId) {
         return Task.builder()
-                .id(TASK_ID)
+                .id(taskId)
                 .status(status)
                 .dueDate(java.sql.Timestamp.valueOf(DATE_IN_FUTURE))
                 .person(createPerson())
@@ -60,9 +60,9 @@ public class TaskHelper {
     }
 
     public static List<Task> createTasks() {
-        return List.of(createTask(NOT_DONE),
-                createTask(DONE),
-                createTask(PAST_DUE));
+        return List.of(createTask(NOT_DONE, 1),
+                createTask(DONE, 2),
+                createTask(PAST_DUE, 3));
     }
 
     public static TaskPatchDto createDoneTaskPatchDto(){

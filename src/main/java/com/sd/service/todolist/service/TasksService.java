@@ -1,7 +1,7 @@
 package com.sd.service.todolist.service;
 
 import com.sd.service.todolist.model.TaskDto;
-import com.sd.service.todolist.model.TaskPatchDto;
+import com.sd.service.todolist.model.patch.TaskPatchDto;
 import java.util.List;
 
 public interface TasksService {

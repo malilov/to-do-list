@@ -1,4 +1,4 @@
-package com.sd.service.todolist.model;
+package com.sd.service.todolist.model.patch;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sd.service.todolist.entity.TaskStatus;

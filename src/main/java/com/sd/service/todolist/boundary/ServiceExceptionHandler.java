@@ -2,7 +2,7 @@ package com.sd.service.todolist.boundary;
 
 import com.sd.service.todolist.exception.DataPreconditionException;
 import com.sd.service.todolist.exception.StorageException;
-import com.sd.service.todolist.model.BasicErrorResponse;
+import com.sd.service.todolist.model.error.BasicErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

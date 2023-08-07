@@ -84,7 +84,7 @@ class TasksControllerIT {
         when(personRepository.findById(PERSON_ID))
                 .thenReturn(Optional.of(createPerson()));
         when(taskRepository.save(any(Task.class)))
-                .thenReturn(createTask(NOT_DONE));
+                .thenReturn(createTask(NOT_DONE, TASK_ID));
         when(resourceLocator.getResourceUri(eq(TaskController.class), eq("getTask"), eq(TASK_ID)))
                 .thenReturn(RESOURCE_URI);
 
@@ -118,7 +118,7 @@ class TasksControllerIT {
     @Test
     void getTaskByIdShouldSucceed() {
         when(taskRepository.findById(TASK_ID))
-                .thenReturn(Optional.of(createTask(NOT_DONE)));
+                .thenReturn(Optional.of(createTask(NOT_DONE, TASK_ID)));
 
         given()
                 .pathParam("id", TASK_ID)

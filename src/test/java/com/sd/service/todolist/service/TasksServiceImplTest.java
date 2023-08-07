@@ -103,7 +103,7 @@ class TasksServiceImplTest {
 
     @Test
     void throwExceptionWhenModifyingPastDueTask() {
-        Task task = createTask(PAST_DUE);
+        Task task = createTask(PAST_DUE, TASK_ID);
         when(repository.findById(TASK_ID)).thenReturn(Optional.of(task));
 
         assertThrows(DataPreconditionException.class, () -> tasksService.updateTaskPartially(TASK_ID, createDoneTaskPatchDto()));

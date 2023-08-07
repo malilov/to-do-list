@@ -4,7 +4,7 @@ import static io.micrometer.common.util.StringUtils.isNotEmpty;
 
 import com.sd.service.todolist.entity.Task;
 import com.sd.service.todolist.model.TaskDto;
-import com.sd.service.todolist.model.TaskPatchDto;
+import com.sd.service.todolist.model.patch.TaskPatchDto;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -10,7 +10,7 @@ import com.sd.service.todolist.exception.DataPreconditionException;
 import com.sd.service.todolist.exception.StorageException;
 import com.sd.service.todolist.mapper.TaskMapper;
 import com.sd.service.todolist.model.TaskDto;
-import com.sd.service.todolist.model.TaskPatchDto;
+import com.sd.service.todolist.model.patch.TaskPatchDto;
 import com.sd.service.todolist.repository.TaskRepository;
 import com.sd.service.todolist.service.PersonService;
 import com.sd.service.todolist.service.TasksService;
@@ -50,9 +50,9 @@ public class TasksServiceImpl implements TasksService {
     @Override
     public TaskDto getTaskById(Integer id) {
         Task task = getTask(id);
-        if (isDueDateExpired(task)) {
-            task = updatePastDateStatus(task);
-        }
+
+        task = updatePastDateStatus(task);
+
         return mapper.map(task);
     }
 
@@ -87,8 +87,10 @@ public class TasksServiceImpl implements TasksService {
     }
 
     private Task updatePastDateStatus(Task task) {
+        if (isDueDateExpired(task)) {
             task.setStatus(PAST_DUE);
             task = repository.save(task);
+        }
         return task;
     }
 
